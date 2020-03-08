@@ -24,14 +24,14 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
+import { Component, Vue } from 'nuxt-property-decorator'
 import Logo from '~/components/Logo.vue'
 
-export default {
-  components: {
-    Logo
-  }
-}
+@Component({
+  components: { Logo }
+})
+export default class index extends Vue {}
 </script>
 
 <style>
