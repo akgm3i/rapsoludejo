@@ -29,7 +29,7 @@ import { Component, Vue } from 'nuxt-property-decorator'
 import Logo from '~/components/Logo.vue'
 
 @Component({
-  components: { Logo }
+  components: { Logo },
 })
 export default class index extends Vue {}
 </script>
