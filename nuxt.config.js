@@ -35,6 +35,8 @@ export default {
     '@nuxt/typescript-build',
     // Doc: https://github.com/nuxt-community/eslint-module
     '@nuxtjs/eslint-module',
+    // Doc: https://github.com/nuxt-community/stylelint-module
+    '@nuxtjs/stylelint-module',
     // Doc: https://github.com/nuxt-community/nuxt-tailwindcss
     '@nuxtjs/tailwindcss',
   ],
@@ -58,6 +60,6 @@ export default {
     /*
      ** You can extend webpack config here
      */
-    // extend(config, ctx) {}
+    // extend(config, ctx) {},
   },
 }
