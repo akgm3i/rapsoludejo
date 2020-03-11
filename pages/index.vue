@@ -1,90 +1,41 @@
 <template>
-  <div>
-    <Header />
-    <div class="container">
-      <div>
-        <Logo />
-        <h1 class="title">rapsoludejo</h1>
-        <h2 class="subtitle">Utilities for playing board games.</h2>
-        <div class="links">
-          <a href="https://nuxtjs.org/" target="_blank" class="button--green"
-            >Documentation</a
-          >
-          <a
-            href="https://github.com/nuxt/nuxt.js"
-            target="_blank"
-            class="button--grey"
-            >GitHub</a
-          >
-        </div>
+  <div class="contents">
+    <div class="hero">
+      <h1 class="message">
+        <span>ボードゲームを</span>
+        <span class="pl-4">もっと楽しく。</span>
+      </h1>
+      <div class="button">
+        <nuxt-link to="/">はじめる</nuxt-link>
       </div>
     </div>
-    <dir></dir>
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'nuxt-property-decorator'
-import Logo from '~/components/Logo.vue'
-import Header from '~/components/Header.vue'
 
 @Component({
-  components: { Logo, Header },
+  components: {},
 })
 export default class index extends Vue {}
 </script>
 
 <style lang="scss" scoped>
-.container {
-  @apply min-h-screen flex justify-center items-center text-center mx-auto;
+.contents {
+  @apply h-screen py-12;
 }
 
-.title {
-  display: block;
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  font-size: 100px;
-  font-weight: 300;
-  color: #35495e;
-  letter-spacing: 1px;
+.hero {
+  background: linear-gradient(#7b341e30, #feebc820), url('~assets/img/hero.jpg');
+  @apply flex flex-col items-center h-full bg-cover bg-center pt-20;
 }
 
-.subtitle {
-  padding-bottom: 15px;
-  font-size: 42px;
-  font-weight: 300;
-  color: #526488;
-  word-spacing: 5px;
+.message {
+  @apply flex flex-col text-center text-4xl text-gray-100;
 }
 
-.links {
-  padding-top: 15px;
-}
-
-.button--green {
-  display: inline-block;
-  padding: 10px 30px;
-  color: #3b8070;
-  text-decoration: none;
-  border: 1px solid #3b8070;
-  border-radius: 4px;
-  &:hover {
-    color: #fff;
-    background-color: #3b8070;
-  }
-}
-
-.button--grey {
-  display: inline-block;
-  padding: 10px 30px;
-  margin-left: 15px;
-  color: #35495e;
-  text-decoration: none;
-  border: 1px solid #35495e;
-  border-radius: 4px;
-  &:hover {
-    color: #fff;
-    background-color: #35495e;
-  }
+.button {
+  @apply mt-8 px-4 py-1 bg-blue-500 rounded-lg text-xl text-gray-100;
 }
 </style>
