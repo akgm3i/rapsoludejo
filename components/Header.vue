@@ -1,12 +1,12 @@
 <template>
-  <nav class="header">
+  <div class="header">
     <nuxt-link class="header-logo" to="/">
-      <img src="@/assets/img/logo.png" alt="unko" />
+      <img src="@/assets/img/logo.png" alt="ラプソル" />
     </nuxt-link>
-    <div class=" header-icon">
-      <img src="@/assets/img/icon.png" class="rounded-full" alt="icon" />
+    <div class=" user-icon">
+      <img src="@/assets/img/icon.png" class="rounded-full" alt="user icon" />
     </div>
-  </nav>
+  </div>
 </template>
 
 <script lang="ts">
@@ -18,14 +18,14 @@ export default class Header extends Vue {}
 
 <style lang="scss" scoped>
 .header {
-  @apply flex items-center justify-between flex-wrap bg-teal-500 px-2 py-2;
+  @apply fixed inset-x-0 h-12 flex items-center justify-between bg-orange-400 p-2;
 }
 
 .header-logo {
-  @apply flex items-center flex-shrink-0 text-white mr-6;
+  @apply flex-shrink-0  mr-6;
 }
 
-.header-icon {
-  @apply flex items-center px-2 text-teal-200 border-teal-400 rounded-full block;
+.user-icon {
+  @apply rounded-full;
 }
 </style>
