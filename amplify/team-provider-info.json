@@ -10,6 +10,11 @@
             "StackName": "amplify-rapsoludejo-dev-33353",
             "StackId": "arn:aws:cloudformation:ap-northeast-1:747087613304:stack/amplify-rapsoludejo-dev-33353/33959170-60a2-11ea-897a-0a949e552770",
             "AmplifyAppId": "d3fkr6a3r48q0b"
+        },
+        "categories": {
+            "auth": {
+                "rapsoludejoa6aaade1": {}
+            }
         }
     }
 }
