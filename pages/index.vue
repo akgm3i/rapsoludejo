@@ -1,6 +1,5 @@
 <template>
   <div>
-    <Header />
     <div class="container">
       <div>
         <Logo />
@@ -26,10 +25,9 @@
 <script lang="ts">
 import { Component, Vue } from 'nuxt-property-decorator'
 import Logo from '~/components/Logo.vue'
-import Header from '~/components/Header.vue'
 
 @Component({
-  components: { Logo, Header },
+  components: { Logo },
 })
 export default class index extends Vue {}
 </script>
