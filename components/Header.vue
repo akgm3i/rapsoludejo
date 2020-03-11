@@ -18,7 +18,7 @@ export default class Header extends Vue {}
 
 <style lang="scss" scoped>
 .header {
-  @apply fixed inset-x-0 h-12 flex items-center justify-between bg-orange-400 p-2;
+  @apply fixed inset-x-0 h-12 flex items-center justify-between bg-orange-400 p-2 z-50;
 }
 
 .header-logo {

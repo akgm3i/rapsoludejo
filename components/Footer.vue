@@ -13,6 +13,6 @@ export default class Footer extends Vue {}
 
 <style lang="scss" scoped>
 .footer {
-  @apply fixed h-12 inset-x-0 bottom-0 bg-orange-400;
+  @apply fixed h-12 inset-x-0 bottom-0 bg-orange-400 z-50;
 }
 </style>
