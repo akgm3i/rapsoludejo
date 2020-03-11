@@ -23,7 +23,7 @@ export default class index extends Vue {}
 
 <style lang="scss" scoped>
 .contents {
-  @apply h-screen py-12;
+  @apply absolute inset-0 py-12;
 }
 
 .hero {
