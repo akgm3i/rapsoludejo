@@ -6,7 +6,7 @@
         <span class="pl-4">もっと楽しく。</span>
       </h1>
       <div class="button">
-        <nuxt-link to="/">はじめる</nuxt-link>
+        <nuxt-link to="login">はじめる</nuxt-link>
       </div>
     </div>
   </div>
@@ -23,7 +23,7 @@ export default class index extends Vue {}
 
 <style lang="scss" scoped>
 .contents {
-  @apply absolute inset-0 py-12;
+  @apply absolute inset-0;
 }
 
 .hero {

@@ -1,7 +1,9 @@
 <template>
   <div>
     <Header />
-    <nuxt />
+    <div class="py-12">
+      <nuxt />
+    </div>
     <Footer />
   </div>
 </template>
