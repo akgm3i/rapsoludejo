@@ -1,0 +1,12 @@
+type Room @model {
+  id: ID!
+  name: String!
+  password: String
+  owner: String!
+  users: [User] @connection(name: "RoomUsers")
+}
+type User @model {
+  id: ID!
+  name: String!
+  room: Room @connection(name: "RoomUsers")
+}
