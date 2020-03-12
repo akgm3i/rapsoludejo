@@ -1,10 +1,10 @@
 <template>
   <div class="header">
     <nuxt-link class="header-logo" to="/">
-      <img src="@/assets/img/logo.png" alt="ラプソル" />
+      <img class="h-8" src="@/assets/img/logo.svg" />
     </nuxt-link>
-    <div class=" user-icon">
-      <img src="@/assets/img/icon.png" class="rounded-full" alt="user icon" />
+    <div class="user-icon">
+      <img class="h-8" src="@/assets/img/icon.png" />
     </div>
   </div>
 </template>
