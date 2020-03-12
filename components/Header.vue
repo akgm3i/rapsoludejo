@@ -1,10 +1,10 @@
 <template>
   <nav class="header">
     <nuxt-link class="header-logo" to="/">
-      <img src="@/assets/img/logo.png" alt="unko" />
+      <img class="h-8" src="@/assets/img/logo.svg" />
     </nuxt-link>
     <div class=" header-icon">
-      <img src="@/assets/img/icon.png" class="rounded-full" alt="icon" />
+      <img class="h-8" src="@/assets/img/icon.png" />
     </div>
   </nav>
 </template>
