@@ -1,12 +1,42 @@
+type User @model @key(name: "byRoom", fields: ["roomId", "nickname"]) {
+  id: ID!
+  email: AWSEmail!
+  nickname: String!
+  icon: String
+  roomId: ID
+  createdAt: AWSDateTime!
+  updatedAt: AWSDateTime
+  fromRelations: [UserRelation]
+    @connection(keyName: "byFromUser", fields: ["id"])
+  toRelations: [UserRelation] @connection(keyName: "byToUser", fields: ["id"])
+}
+
+type UserRelation
+  @model
+  @key(name: "byFromUser", fields: ["fromUserId", "toUserId"])
+  @key(name: "byToUser", fields: ["toUserId", "fromUserId"]) {
+  id: ID!
+  fromUserId: ID!
+  toUserId: ID!
+  status: UserRelationStatus!
+  createdAt: AWSDateTime!
+  updatedAt: AWSDateTime
+  fromUser: User @connection(fields: ["fromUserId"])
+  toUser: User @connection(fields: ["toUserId"])
+}
+
+enum UserRelationStatus {
+  pending
+  denied
+  friend
+  brocked
+}
+
 type Room @model {
   id: ID!
   name: String!
   password: String
-  owner: String!
-  users: [User] @connection(name: "RoomUsers")
-}
-type User @model {
-  id: ID!
-  name: String!
-  room: Room @connection(name: "RoomUsers")
+  ownerId: ID!
+  owner: User @connection(fields: ["ownerId"])
+  users: [User] @connection(keyName: "byRoom", fields: ["id"])
 }
