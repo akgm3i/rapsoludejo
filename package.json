@@ -28,7 +28,7 @@
     "@nuxtjs/pwa": "^3.0.0-0",
     "aws-amplify": "^2.2.6",
     "aws-amplify-vue": "^1.1.4",
-    "nuxt": "^2.0.0",
+    "nuxt": "^2.12.0",
     "nuxt-property-decorator": "^2.5.1",
     "vuex-module-decorators": "^0.16.1"
   },
@@ -37,7 +37,7 @@
     "@nuxtjs/eslint-config-typescript": "^1.0.2",
     "@nuxtjs/eslint-module": "^1.0.0",
     "@nuxtjs/stylelint-module": "^3.2.2",
-    "@nuxtjs/tailwindcss": "^1.0.0",
+    "@nuxtjs/tailwindcss": "^1.4.0",
     "@types/graphql": "14.0.0",
     "@types/jest": "^25.1.4",
     "@types/zen-observable": "^0.8.0",
