@@ -1,5 +1,4 @@
 // tslint:disable
-// eslint-disable
 // this is an auto generated file. This will be overwritten
 
 export const getUser = /* GraphQL */ `
@@ -36,7 +35,7 @@ export const getUser = /* GraphQL */ `
       }
     }
   }
-`
+`;
 export const listUsers = /* GraphQL */ `
   query ListUsers(
     $filter: ModelUserFilterInput
@@ -62,7 +61,7 @@ export const listUsers = /* GraphQL */ `
       nextToken
     }
   }
-`
+`;
 export const getUserRelation = /* GraphQL */ `
   query GetUserRelation($id: ID!) {
     getUserRelation(id: $id) {
@@ -104,7 +103,7 @@ export const getUserRelation = /* GraphQL */ `
       }
     }
   }
-`
+`;
 export const listUserRelations = /* GraphQL */ `
   query ListUserRelations(
     $filter: ModelUserRelationFilterInput
@@ -141,7 +140,7 @@ export const listUserRelations = /* GraphQL */ `
       nextToken
     }
   }
-`
+`;
 export const getRoom = /* GraphQL */ `
   query GetRoom($id: ID!) {
     getRoom(id: $id) {
@@ -164,9 +163,21 @@ export const getRoom = /* GraphQL */ `
           nextToken
         }
       }
+      users {
+        items {
+          id
+          email
+          nickname
+          icon
+          roomId
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
     }
   }
-`
+`;
 export const listRooms = /* GraphQL */ `
   query ListRooms(
     $filter: ModelRoomFilterInput
@@ -188,8 +199,11 @@ export const listRooms = /* GraphQL */ `
           createdAt
           updatedAt
         }
+        users {
+          nextToken
+        }
       }
       nextToken
     }
   }
-`
+`;

@@ -1,5 +1,4 @@
 // tslint:disable
-// eslint-disable
 // this is an auto generated file. This will be overwritten
 
 export const createUser = /* GraphQL */ `
@@ -39,7 +38,7 @@ export const createUser = /* GraphQL */ `
       }
     }
   }
-`
+`;
 export const updateUser = /* GraphQL */ `
   mutation UpdateUser(
     $input: UpdateUserInput!
@@ -77,7 +76,7 @@ export const updateUser = /* GraphQL */ `
       }
     }
   }
-`
+`;
 export const deleteUser = /* GraphQL */ `
   mutation DeleteUser(
     $input: DeleteUserInput!
@@ -115,7 +114,7 @@ export const deleteUser = /* GraphQL */ `
       }
     }
   }
-`
+`;
 export const createUserRelation = /* GraphQL */ `
   mutation CreateUserRelation(
     $input: CreateUserRelationInput!
@@ -160,7 +159,7 @@ export const createUserRelation = /* GraphQL */ `
       }
     }
   }
-`
+`;
 export const updateUserRelation = /* GraphQL */ `
   mutation UpdateUserRelation(
     $input: UpdateUserRelationInput!
@@ -205,7 +204,7 @@ export const updateUserRelation = /* GraphQL */ `
       }
     }
   }
-`
+`;
 export const deleteUserRelation = /* GraphQL */ `
   mutation DeleteUserRelation(
     $input: DeleteUserRelationInput!
@@ -250,7 +249,7 @@ export const deleteUserRelation = /* GraphQL */ `
       }
     }
   }
-`
+`;
 export const createRoom = /* GraphQL */ `
   mutation CreateRoom(
     $input: CreateRoomInput!
@@ -276,9 +275,21 @@ export const createRoom = /* GraphQL */ `
           nextToken
         }
       }
+      users {
+        items {
+          id
+          email
+          nickname
+          icon
+          roomId
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
     }
   }
-`
+`;
 export const updateRoom = /* GraphQL */ `
   mutation UpdateRoom(
     $input: UpdateRoomInput!
@@ -304,9 +315,21 @@ export const updateRoom = /* GraphQL */ `
           nextToken
         }
       }
+      users {
+        items {
+          id
+          email
+          nickname
+          icon
+          roomId
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
     }
   }
-`
+`;
 export const deleteRoom = /* GraphQL */ `
   mutation DeleteRoom(
     $input: DeleteRoomInput!
@@ -332,6 +355,18 @@ export const deleteRoom = /* GraphQL */ `
           nextToken
         }
       }
+      users {
+        items {
+          id
+          email
+          nickname
+          icon
+          roomId
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
     }
   }
-`
+`;

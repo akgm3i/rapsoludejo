@@ -1,5 +1,4 @@
 // tslint:disable
-// eslint-disable
 // this is an auto generated file. This will be overwritten
 
 export const onCreateUser = /* GraphQL */ `
@@ -36,7 +35,7 @@ export const onCreateUser = /* GraphQL */ `
       }
     }
   }
-`
+`;
 export const onUpdateUser = /* GraphQL */ `
   subscription OnUpdateUser {
     onUpdateUser {
@@ -71,7 +70,7 @@ export const onUpdateUser = /* GraphQL */ `
       }
     }
   }
-`
+`;
 export const onDeleteUser = /* GraphQL */ `
   subscription OnDeleteUser {
     onDeleteUser {
@@ -106,7 +105,7 @@ export const onDeleteUser = /* GraphQL */ `
       }
     }
   }
-`
+`;
 export const onCreateUserRelation = /* GraphQL */ `
   subscription OnCreateUserRelation {
     onCreateUserRelation {
@@ -148,7 +147,7 @@ export const onCreateUserRelation = /* GraphQL */ `
       }
     }
   }
-`
+`;
 export const onUpdateUserRelation = /* GraphQL */ `
   subscription OnUpdateUserRelation {
     onUpdateUserRelation {
@@ -190,7 +189,7 @@ export const onUpdateUserRelation = /* GraphQL */ `
       }
     }
   }
-`
+`;
 export const onDeleteUserRelation = /* GraphQL */ `
   subscription OnDeleteUserRelation {
     onDeleteUserRelation {
@@ -232,7 +231,7 @@ export const onDeleteUserRelation = /* GraphQL */ `
       }
     }
   }
-`
+`;
 export const onCreateRoom = /* GraphQL */ `
   subscription OnCreateRoom {
     onCreateRoom {
@@ -255,9 +254,21 @@ export const onCreateRoom = /* GraphQL */ `
           nextToken
         }
       }
+      users {
+        items {
+          id
+          email
+          nickname
+          icon
+          roomId
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
     }
   }
-`
+`;
 export const onUpdateRoom = /* GraphQL */ `
   subscription OnUpdateRoom {
     onUpdateRoom {
@@ -280,9 +291,21 @@ export const onUpdateRoom = /* GraphQL */ `
           nextToken
         }
       }
+      users {
+        items {
+          id
+          email
+          nickname
+          icon
+          roomId
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
     }
   }
-`
+`;
 export const onDeleteRoom = /* GraphQL */ `
   subscription OnDeleteRoom {
     onDeleteRoom {
@@ -305,6 +328,18 @@ export const onDeleteRoom = /* GraphQL */ `
           nextToken
         }
       }
+      users {
+        items {
+          id
+          email
+          nickname
+          icon
+          roomId
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
     }
   }
-`
+`;

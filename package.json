@@ -29,8 +29,7 @@
     "aws-amplify": "^2.2.6",
     "aws-amplify-vue": "^1.1.4",
     "nuxt": "^2.12.0",
-    "nuxt-property-decorator": "^2.5.1",
-    "vuex-module-decorators": "^0.16.1"
+    "nuxt-property-decorator": "^2.5.1"
   },
   "devDependencies": {
     "@nuxt/typescript-build": "^0.6.0",
@@ -59,6 +58,7 @@
     "stylelint-config-standard": "^20.0.0",
     "stylelint-prettier": "^1.1.2",
     "stylelint-scss": "^3.14.2",
-    "vue-jest": "^4.0.0-0"
+    "vue-jest": "^4.0.0-0",
+    "vuex-class-component": "^2.2.1"
   }
 }

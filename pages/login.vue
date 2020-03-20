@@ -87,12 +87,46 @@
         </div>
       </div>
     </form>
+    {{ user.username }}
+    <button
+      class="shadow bg-blue-500 hover:bg-blue-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
+      type="button"
+      @click="test"
+    >
+      test
+    </button>
+    <div class="md:flex md:items-center mb-6">
+      <div class="md:w-1/3">
+        <label
+          class="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4"
+          for="inline-full-name"
+        >
+          code
+        </label>
+      </div>
+      <div class="md:w-2/3">
+        <input
+          v-model="code"
+          class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500"
+          type="text"
+        />
+      </div>
+    </div>
+    <button
+      class="shadow bg-blue-500 hover:bg-blue-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
+      type="button"
+      @click="confirm"
+    >
+      confirm
+    </button>
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'nuxt-property-decorator'
 import { CognitoUser } from 'amazon-cognito-identity-js'
+
+import { vxm } from '@/store/users'
 
 @Component({
   components: {},
@@ -102,6 +136,20 @@ export default class login extends Vue {
   username = ''
   password = ''
   email = ''
+  user = vxm.user
+  code = ''
+
+  test() {
+    this.user.signUp({
+      username: this.username,
+      email: this.email,
+      password: this.password,
+    })
+  }
+
+  confirm() {
+    this.user.confirmSignUp(this.code)
+  }
 
   signIn() {
     this.$Amplify.Auth.signIn({
@@ -145,8 +193,10 @@ export default class login extends Vue {
   beforeCreate() {
     this.$Amplify.Auth.currentAuthenticatedUser()
       .then((user: CognitoUser) => {
+        console.log(user)
         this.signedIn = true
         this.username = user.getUsername()
+        this.user.username = user.getUsername()
       })
       .catch((err: Error) => {
         return console.log(err)

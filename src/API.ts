@@ -523,6 +523,20 @@ export type CreateRoomMutation = {
         nextToken: string | null,
       } | null,
     } | null,
+    users:  {
+      __typename: "ModelUserConnection",
+      items:  Array< {
+        __typename: "User",
+        id: string,
+        email: string,
+        nickname: string,
+        icon: string | null,
+        roomId: string | null,
+        createdAt: string,
+        updatedAt: string | null,
+      } | null > | null,
+      nextToken: string | null,
+    } | null,
   } | null,
 };
 
@@ -556,6 +570,20 @@ export type UpdateRoomMutation = {
         nextToken: string | null,
       } | null,
     } | null,
+    users:  {
+      __typename: "ModelUserConnection",
+      items:  Array< {
+        __typename: "User",
+        id: string,
+        email: string,
+        nickname: string,
+        icon: string | null,
+        roomId: string | null,
+        createdAt: string,
+        updatedAt: string | null,
+      } | null > | null,
+      nextToken: string | null,
+    } | null,
   } | null,
 };
 
@@ -588,6 +616,20 @@ export type DeleteRoomMutation = {
         __typename: "ModelUserRelationConnection",
         nextToken: string | null,
       } | null,
+    } | null,
+    users:  {
+      __typename: "ModelUserConnection",
+      items:  Array< {
+        __typename: "User",
+        id: string,
+        email: string,
+        nickname: string,
+        icon: string | null,
+        roomId: string | null,
+        createdAt: string,
+        updatedAt: string | null,
+      } | null > | null,
+      nextToken: string | null,
     } | null,
   } | null,
 };
@@ -789,6 +831,20 @@ export type GetRoomQuery = {
         nextToken: string | null,
       } | null,
     } | null,
+    users:  {
+      __typename: "ModelUserConnection",
+      items:  Array< {
+        __typename: "User",
+        id: string,
+        email: string,
+        nickname: string,
+        icon: string | null,
+        roomId: string | null,
+        createdAt: string,
+        updatedAt: string | null,
+      } | null > | null,
+      nextToken: string | null,
+    } | null,
   } | null,
 };
 
@@ -816,6 +872,10 @@ export type ListRoomsQuery = {
         roomId: string | null,
         createdAt: string,
         updatedAt: string | null,
+      } | null,
+      users:  {
+        __typename: "ModelUserConnection",
+        nextToken: string | null,
       } | null,
     } | null > | null,
     nextToken: string | null,
@@ -1108,6 +1168,20 @@ export type OnCreateRoomSubscription = {
         nextToken: string | null,
       } | null,
     } | null,
+    users:  {
+      __typename: "ModelUserConnection",
+      items:  Array< {
+        __typename: "User",
+        id: string,
+        email: string,
+        nickname: string,
+        icon: string | null,
+        roomId: string | null,
+        createdAt: string,
+        updatedAt: string | null,
+      } | null > | null,
+      nextToken: string | null,
+    } | null,
   } | null,
 };
 
@@ -1136,6 +1210,20 @@ export type OnUpdateRoomSubscription = {
         nextToken: string | null,
       } | null,
     } | null,
+    users:  {
+      __typename: "ModelUserConnection",
+      items:  Array< {
+        __typename: "User",
+        id: string,
+        email: string,
+        nickname: string,
+        icon: string | null,
+        roomId: string | null,
+        createdAt: string,
+        updatedAt: string | null,
+      } | null > | null,
+      nextToken: string | null,
+    } | null,
   } | null,
 };
 
@@ -1163,6 +1251,20 @@ export type OnDeleteRoomSubscription = {
         __typename: "ModelUserRelationConnection",
         nextToken: string | null,
       } | null,
+    } | null,
+    users:  {
+      __typename: "ModelUserConnection",
+      items:  Array< {
+        __typename: "User",
+        id: string,
+        email: string,
+        nickname: string,
+        icon: string | null,
+        roomId: string | null,
+        createdAt: string,
+        updatedAt: string | null,
+      } | null > | null,
+      nextToken: string | null,
     } | null,
   } | null,
 };
