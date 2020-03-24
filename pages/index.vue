@@ -6,7 +6,7 @@
         <span class="pl-4">もっと楽しく。</span>
       </h1>
       <div class="button">
-        <nuxt-link to="login">はじめる</nuxt-link>
+        <nuxt-link to="signIn">はじめる</nuxt-link>
       </div>
     </div>
   </div>
