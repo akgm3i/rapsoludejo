@@ -16,5 +16,23 @@
                 "rapsoludejo": {}
             }
         }
+    },
+    "master": {
+        "awscloudformation": {
+            "AuthRoleName": "amplify-rapsoludejo-master-204958-authRole",
+            "UnauthRoleArn": "arn:aws:iam::747087613304:role/amplify-rapsoludejo-master-204958-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::747087613304:role/amplify-rapsoludejo-master-204958-authRole",
+            "Region": "ap-northeast-1",
+            "DeploymentBucketName": "amplify-rapsoludejo-master-204958-deployment",
+            "UnauthRoleName": "amplify-rapsoludejo-master-204958-unauthRole",
+            "StackName": "amplify-rapsoludejo-master-204958",
+            "StackId": "arn:aws:cloudformation:ap-northeast-1:747087613304:stack/amplify-rapsoludejo-master-204958/bf9f0970-7345-11ea-b9ba-0e8a9cd56576",
+            "AmplifyAppId": "d3c07o5ne1e6nn"
+        },
+        "categories": {
+            "auth": {
+                "rapsoludejo": {}
+            }
+        }
     }
 }
