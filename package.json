@@ -24,10 +24,14 @@
       "pre-commit": "lint-staged"
     }
   },
+  "engines": {
+    "node": ">=10",
+    "yarn": "^1.22.4"
+  },
   "dependencies": {
-    "@nuxtjs/axios": "^5.3.6",
+    "@nuxtjs/axios": "^5.9.7",
     "@nuxtjs/pwa": "^3.0.0-0",
-    "aws-amplify": "^2.2.6",
+    "aws-amplify": "^2.3.0",
     "aws-amplify-vue": "^1.1.4",
     "nuxt": "^2.12.0",
     "nuxt-property-decorator": "^2.5.1"
@@ -44,7 +48,7 @@
     "@vue/test-utils": "^1.0.0-beta.32",
     "eslint": "^6.1.0",
     "eslint-config-prettier": "^6.10.0",
-    "eslint-plugin-nuxt": ">=0.4.2",
+    "eslint-plugin-nuxt": "^0.5.2",
     "eslint-plugin-prettier": "^3.1.2",
     "husky": "^4.0.0",
     "jest": "^24.1.0",
@@ -58,7 +62,7 @@
     "stylelint-config-recommended-scss": "^4.2.0",
     "stylelint-config-standard": "^20.0.0",
     "stylelint-prettier": "^1.1.2",
-    "stylelint-scss": "^3.14.2",
+    "stylelint-scss": "^3.16.0",
     "vue-jest": "^4.0.0-0",
     "vuex-class-component": "^2.2.1"
   }

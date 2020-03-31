@@ -1,23 +1,36 @@
 import { action, mutation } from 'vuex-class-component'
-import { CognitoUser } from 'amazon-cognito-identity-js'
-import consola from 'consola'
+import {
+  graphqlOperation,
+  GraphQLResult,
+  GRAPHQL_AUTH_MODE,
+} from '@aws-amplify/api'
 
+import { CreateUserInput, GetUserQuery } from '~/utils/API'
+import * as queries from '~/utils/graphql/queries'
+import * as mutations from '~/utils/graphql/mutations'
 import VuexModule from '~/utils/baseModule'
 import { $Amplify } from '~/utils/amplify'
 
 export default class UserStore extends VuexModule.With({ namespaced: 'user' }) {
-  private id = ''
+  id = ''
   username = ''
   email = ''
-  nickname = ''
   icon = ''
   roomId = ''
   createdAt = ''
   updatedAt = ''
   isSignedIn = false
 
+  @mutation changeUserId(id: string) {
+    this.id = id
+  }
+
   @mutation changeUsername(username: string) {
     this.username = username
+  }
+
+  @mutation changeEmail(email: string) {
+    this.email = email
   }
 
   @mutation updateIsSignedIn(status: boolean) {
@@ -29,72 +42,82 @@ export default class UserStore extends VuexModule.With({ namespaced: 'user' }) {
     email: string
     password: string
   }) {
-    try {
-      await $Amplify.Auth.confirmSignUp(payload.email, 'isVerifiedEmail')
-    } catch (err) {
-      if (err.name === 'NotAuthorizedException') {
-        throw new Error('this email already used.')
-      } else if (err.name !== 'UserNotFoundException') {
-        throw err
+    await $Amplify.Auth.confirmSignUp(payload.email, 'isVerifiedEmail').catch(
+      (err) => {
+        if (err.name !== 'UserNotFoundException') {
+          return Promise.reject(err)
+        }
       }
+    )
+
+    const user = await $Amplify.Auth.signUp({
+      username: payload.email,
+      password: payload.password,
+    })
+
+    const userInput: CreateUserInput = {
+      id: user.userSub,
+      username: payload.username,
+      email: user.user.getUsername(),
     }
-    try {
-      const user = await $Amplify.Auth.signUp({
-        username: payload.username,
-        password: payload.password,
-        attributes: {
-          email: payload.email,
-        },
-      })
-      return user
-    } catch (err) {
-      consola.error(err)
-    }
+
+    await $Amplify.API.graphql({
+      query: mutations.createUser,
+      variables: { input: userInput },
+      authMode: GRAPHQL_AUTH_MODE.AWS_IAM,
+    })
   }
 
-  @action async signIn(payload: { username: string; password: string }) {
-    try {
-      const user = await $Amplify.Auth.signIn(
-        payload.username,
-        payload.password
-      )
-      this.changeUsername(user.getUsername())
-      this.updateIsSignedIn(true)
-    } catch (err) {
-      if (err.name === 'UserNotConfirmedException') {
-        // The error happens if the user didn't finish the confirmation step when signing up
-        // In this case you need to resend the code and confirm the user
-        // About how to resend the code and confirm the user, please check the signUp part
-      } else if (err.name === 'PasswordResetRequiredException') {
-        // The error happens when the password is reset in the Cognito console
-        // In this case you need to call forgotPassword to reset the password
-        // Please check the Forgot Password part.
-      } else {
-        throw err
-      }
+  @action async signIn(payload: { email: string; password: string }) {
+    const user = await $Amplify.Auth.signIn(payload.email, payload.password)
+
+    const result = (await $Amplify.API.graphql(
+      graphqlOperation(queries.getUser, { id: user.attributes.sub })
+    )) as GraphQLResult<GetUserQuery>
+
+    if (!result.data?.getUser) {
+      return
     }
+
+    const userdata = result.data.getUser
+
+    this.updateIsSignedIn(true)
+    this.changeUserId(userdata.id)
+    this.changeUsername(userdata.username)
+    this.changeEmail(userdata.email)
   }
 
   @action async signOut() {
     await $Amplify.Auth.signOut()
-      .then((data: any) => {
-        this.isSignedIn = false
-        return consola.log(data)
-      })
-      .catch((err: Error) => {
-        throw err
-      })
+    this.updateIsSignedIn(false)
+  }
+
+  @action async sendConfirmMail(payload: { email: string }) {
+    await $Amplify.Auth.resendSignUp(payload.email)
   }
 
   @action async retrieveSession() {
-    await $Amplify.Auth.currentAuthenticatedUser()
-      .then((user: CognitoUser) => {
-        consola.log(user)
-        this.isSignedIn = true
-        this.username = user.getUsername()
-      })
-      .catch((err: Error) => {
-        throw err
-      })
+    const user = await $Amplify.Auth.currentAuthenticatedUser().catch(() =>
+      this.updateIsSignedIn(false)
+    )
+
+    if (!user) {
+      return
+    }
+
+    const result = (await $Amplify.API.graphql(
+      graphqlOperation(queries.getUser, { id: user.attributes.sub })
+    )) as GraphQLResult<GetUserQuery>
+
+    if (!result.data?.getUser) {
+      return
+    }
+
+    const userdata = result.data.getUser
+
+    this.updateIsSignedIn(true)
+    this.changeUserId(userdata.id)
+    this.changeUsername(userdata.username)
+    this.changeEmail(userdata.email)
   }
 }

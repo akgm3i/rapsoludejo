@@ -2,44 +2,6 @@
 // eslint-disable
 // this is an auto generated file. This will be overwritten
 
-export const createUser = /* GraphQL */ `
-  mutation CreateUser(
-    $input: CreateUserInput!
-    $condition: ModelUserConditionInput
-  ) {
-    createUser(input: $input, condition: $condition) {
-      id
-      email
-      nickname
-      icon
-      roomId
-      createdAt
-      updatedAt
-      fromRelations {
-        items {
-          id
-          fromUserId
-          toUserId
-          status
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
-      toRelations {
-        items {
-          id
-          fromUserId
-          toUserId
-          status
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
-    }
-  }
-`;
 export const updateUser = /* GraphQL */ `
   mutation UpdateUser(
     $input: UpdateUserInput!
@@ -48,7 +10,7 @@ export const updateUser = /* GraphQL */ `
     updateUser(input: $input, condition: $condition) {
       id
       email
-      nickname
+      username
       icon
       roomId
       createdAt
@@ -61,6 +23,7 @@ export const updateUser = /* GraphQL */ `
           status
           createdAt
           updatedAt
+          owner
         }
         nextToken
       }
@@ -72,6 +35,7 @@ export const updateUser = /* GraphQL */ `
           status
           createdAt
           updatedAt
+          owner
         }
         nextToken
       }
@@ -86,7 +50,7 @@ export const deleteUser = /* GraphQL */ `
     deleteUser(input: $input, condition: $condition) {
       id
       email
-      nickname
+      username
       icon
       roomId
       createdAt
@@ -99,6 +63,7 @@ export const deleteUser = /* GraphQL */ `
           status
           createdAt
           updatedAt
+          owner
         }
         nextToken
       }
@@ -110,6 +75,7 @@ export const deleteUser = /* GraphQL */ `
           status
           createdAt
           updatedAt
+          owner
         }
         nextToken
       }
@@ -131,7 +97,7 @@ export const createUserRelation = /* GraphQL */ `
       fromUser {
         id
         email
-        nickname
+        username
         icon
         roomId
         createdAt
@@ -146,7 +112,7 @@ export const createUserRelation = /* GraphQL */ `
       toUser {
         id
         email
-        nickname
+        username
         icon
         roomId
         createdAt
@@ -158,6 +124,7 @@ export const createUserRelation = /* GraphQL */ `
           nextToken
         }
       }
+      owner
     }
   }
 `;
@@ -176,7 +143,7 @@ export const updateUserRelation = /* GraphQL */ `
       fromUser {
         id
         email
-        nickname
+        username
         icon
         roomId
         createdAt
@@ -191,7 +158,7 @@ export const updateUserRelation = /* GraphQL */ `
       toUser {
         id
         email
-        nickname
+        username
         icon
         roomId
         createdAt
@@ -203,6 +170,7 @@ export const updateUserRelation = /* GraphQL */ `
           nextToken
         }
       }
+      owner
     }
   }
 `;
@@ -221,7 +189,7 @@ export const deleteUserRelation = /* GraphQL */ `
       fromUser {
         id
         email
-        nickname
+        username
         icon
         roomId
         createdAt
@@ -236,7 +204,7 @@ export const deleteUserRelation = /* GraphQL */ `
       toUser {
         id
         email
-        nickname
+        username
         icon
         roomId
         createdAt
@@ -248,6 +216,7 @@ export const deleteUserRelation = /* GraphQL */ `
           nextToken
         }
       }
+      owner
     }
   }
 `;
@@ -264,7 +233,7 @@ export const createRoom = /* GraphQL */ `
       owner {
         id
         email
-        nickname
+        username
         icon
         roomId
         createdAt
@@ -280,7 +249,7 @@ export const createRoom = /* GraphQL */ `
         items {
           id
           email
-          nickname
+          username
           icon
           roomId
           createdAt
@@ -304,7 +273,7 @@ export const updateRoom = /* GraphQL */ `
       owner {
         id
         email
-        nickname
+        username
         icon
         roomId
         createdAt
@@ -320,7 +289,7 @@ export const updateRoom = /* GraphQL */ `
         items {
           id
           email
-          nickname
+          username
           icon
           roomId
           createdAt
@@ -344,7 +313,7 @@ export const deleteRoom = /* GraphQL */ `
       owner {
         id
         email
-        nickname
+        username
         icon
         roomId
         createdAt
@@ -360,11 +329,51 @@ export const deleteRoom = /* GraphQL */ `
         items {
           id
           email
-          nickname
+          username
           icon
           roomId
           createdAt
           updatedAt
+        }
+        nextToken
+      }
+    }
+  }
+`;
+export const createUser = /* GraphQL */ `
+  mutation CreateUser(
+    $input: CreateUserInput!
+    $condition: ModelUserConditionInput
+  ) {
+    createUser(input: $input, condition: $condition) {
+      id
+      email
+      username
+      icon
+      roomId
+      createdAt
+      updatedAt
+      fromRelations {
+        items {
+          id
+          fromUserId
+          toUserId
+          status
+          createdAt
+          updatedAt
+          owner
+        }
+        nextToken
+      }
+      toRelations {
+        items {
+          id
+          fromUserId
+          toUserId
+          status
+          createdAt
+          updatedAt
+          owner
         }
         nextToken
       }

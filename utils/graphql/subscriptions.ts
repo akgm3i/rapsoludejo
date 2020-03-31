@@ -2,114 +2,9 @@
 // eslint-disable
 // this is an auto generated file. This will be overwritten
 
-export const onCreateUser = /* GraphQL */ `
-  subscription OnCreateUser {
-    onCreateUser {
-      id
-      email
-      nickname
-      icon
-      roomId
-      createdAt
-      updatedAt
-      fromRelations {
-        items {
-          id
-          fromUserId
-          toUserId
-          status
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
-      toRelations {
-        items {
-          id
-          fromUserId
-          toUserId
-          status
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
-    }
-  }
-`;
-export const onUpdateUser = /* GraphQL */ `
-  subscription OnUpdateUser {
-    onUpdateUser {
-      id
-      email
-      nickname
-      icon
-      roomId
-      createdAt
-      updatedAt
-      fromRelations {
-        items {
-          id
-          fromUserId
-          toUserId
-          status
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
-      toRelations {
-        items {
-          id
-          fromUserId
-          toUserId
-          status
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
-    }
-  }
-`;
-export const onDeleteUser = /* GraphQL */ `
-  subscription OnDeleteUser {
-    onDeleteUser {
-      id
-      email
-      nickname
-      icon
-      roomId
-      createdAt
-      updatedAt
-      fromRelations {
-        items {
-          id
-          fromUserId
-          toUserId
-          status
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
-      toRelations {
-        items {
-          id
-          fromUserId
-          toUserId
-          status
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
-    }
-  }
-`;
 export const onCreateUserRelation = /* GraphQL */ `
-  subscription OnCreateUserRelation {
-    onCreateUserRelation {
+  subscription OnCreateUserRelation($owner: String!) {
+    onCreateUserRelation(owner: $owner) {
       id
       fromUserId
       toUserId
@@ -119,7 +14,7 @@ export const onCreateUserRelation = /* GraphQL */ `
       fromUser {
         id
         email
-        nickname
+        username
         icon
         roomId
         createdAt
@@ -134,7 +29,7 @@ export const onCreateUserRelation = /* GraphQL */ `
       toUser {
         id
         email
-        nickname
+        username
         icon
         roomId
         createdAt
@@ -146,6 +41,7 @@ export const onCreateUserRelation = /* GraphQL */ `
           nextToken
         }
       }
+      owner
     }
   }
 `;
@@ -161,7 +57,7 @@ export const onUpdateUserRelation = /* GraphQL */ `
       fromUser {
         id
         email
-        nickname
+        username
         icon
         roomId
         createdAt
@@ -176,7 +72,7 @@ export const onUpdateUserRelation = /* GraphQL */ `
       toUser {
         id
         email
-        nickname
+        username
         icon
         roomId
         createdAt
@@ -188,6 +84,7 @@ export const onUpdateUserRelation = /* GraphQL */ `
           nextToken
         }
       }
+      owner
     }
   }
 `;
@@ -203,7 +100,7 @@ export const onDeleteUserRelation = /* GraphQL */ `
       fromUser {
         id
         email
-        nickname
+        username
         icon
         roomId
         createdAt
@@ -218,7 +115,7 @@ export const onDeleteUserRelation = /* GraphQL */ `
       toUser {
         id
         email
-        nickname
+        username
         icon
         roomId
         createdAt
@@ -230,6 +127,7 @@ export const onDeleteUserRelation = /* GraphQL */ `
           nextToken
         }
       }
+      owner
     }
   }
 `;
@@ -243,7 +141,7 @@ export const onCreateRoom = /* GraphQL */ `
       owner {
         id
         email
-        nickname
+        username
         icon
         roomId
         createdAt
@@ -259,7 +157,7 @@ export const onCreateRoom = /* GraphQL */ `
         items {
           id
           email
-          nickname
+          username
           icon
           roomId
           createdAt
@@ -280,7 +178,7 @@ export const onUpdateRoom = /* GraphQL */ `
       owner {
         id
         email
-        nickname
+        username
         icon
         roomId
         createdAt
@@ -296,7 +194,7 @@ export const onUpdateRoom = /* GraphQL */ `
         items {
           id
           email
-          nickname
+          username
           icon
           roomId
           createdAt
@@ -317,7 +215,7 @@ export const onDeleteRoom = /* GraphQL */ `
       owner {
         id
         email
-        nickname
+        username
         icon
         roomId
         createdAt
@@ -333,7 +231,7 @@ export const onDeleteRoom = /* GraphQL */ `
         items {
           id
           email
-          nickname
+          username
           icon
           roomId
           createdAt

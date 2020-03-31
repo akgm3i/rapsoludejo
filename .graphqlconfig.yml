@@ -2,14 +2,14 @@ projects:
   rapsoludejo:
     schemaPath: amplify/backend/api/rapsoludejo/build/schema.graphql
     includes:
-      - src/graphql/**/*.ts
+      - utils/graphql/**/*.ts
     excludes:
       - ./amplify/**
     extensions:
       amplify:
         codeGenTarget: typescript
-        generatedFileName: src/API.ts
-        docsFilePath: src/graphql
+        generatedFileName: utils/API.ts
+        docsFilePath: utils/graphql
 extensions:
   amplify:
     version: 3

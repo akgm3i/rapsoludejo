@@ -1,10 +1,9 @@
 {
 	"auth": {
-		"rapsoludejoa6aaade1": {
+		"rapsoludejo": {
 			"service": "Cognito",
 			"providerPlugin": "awscloudformation",
-			"dependsOn": [],
-			"customAuth": false
+			"dependsOn": []
 		}
 	},
 	"api": {
@@ -13,11 +12,15 @@
 			"providerPlugin": "awscloudformation",
 			"output": {
 				"authConfig": {
-					"additionalAuthenticationProviders": [],
+					"additionalAuthenticationProviders": [
+						{
+							"authenticationType": "AWS_IAM"
+						}
+					],
 					"defaultAuthentication": {
 						"authenticationType": "AMAZON_COGNITO_USER_POOLS",
 						"userPoolConfig": {
-							"userPoolId": "authrapsoludejoa6aaade1"
+							"userPoolId": "authrapsoludejo"
 						}
 					}
 				}

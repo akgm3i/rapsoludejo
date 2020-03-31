@@ -7,7 +7,7 @@ export const getUser = /* GraphQL */ `
     getUser(id: $id) {
       id
       email
-      nickname
+      username
       icon
       roomId
       createdAt
@@ -20,6 +20,7 @@ export const getUser = /* GraphQL */ `
           status
           createdAt
           updatedAt
+          owner
         }
         nextToken
       }
@@ -31,6 +32,7 @@ export const getUser = /* GraphQL */ `
           status
           createdAt
           updatedAt
+          owner
         }
         nextToken
       }
@@ -47,7 +49,7 @@ export const listUsers = /* GraphQL */ `
       items {
         id
         email
-        nickname
+        username
         icon
         roomId
         createdAt
@@ -75,7 +77,7 @@ export const getUserRelation = /* GraphQL */ `
       fromUser {
         id
         email
-        nickname
+        username
         icon
         roomId
         createdAt
@@ -90,7 +92,7 @@ export const getUserRelation = /* GraphQL */ `
       toUser {
         id
         email
-        nickname
+        username
         icon
         roomId
         createdAt
@@ -102,6 +104,7 @@ export const getUserRelation = /* GraphQL */ `
           nextToken
         }
       }
+      owner
     }
   }
 `;
@@ -122,7 +125,7 @@ export const listUserRelations = /* GraphQL */ `
         fromUser {
           id
           email
-          nickname
+          username
           icon
           roomId
           createdAt
@@ -131,12 +134,13 @@ export const listUserRelations = /* GraphQL */ `
         toUser {
           id
           email
-          nickname
+          username
           icon
           roomId
           createdAt
           updatedAt
         }
+        owner
       }
       nextToken
     }
@@ -152,7 +156,7 @@ export const getRoom = /* GraphQL */ `
       owner {
         id
         email
-        nickname
+        username
         icon
         roomId
         createdAt
@@ -168,7 +172,7 @@ export const getRoom = /* GraphQL */ `
         items {
           id
           email
-          nickname
+          username
           icon
           roomId
           createdAt
@@ -194,7 +198,7 @@ export const listRooms = /* GraphQL */ `
         owner {
           id
           email
-          nickname
+          username
           icon
           roomId
           createdAt

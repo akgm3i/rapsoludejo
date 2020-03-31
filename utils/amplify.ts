@@ -1,9 +1,9 @@
-// @ts-ignore
-import { AmplifyPlugin } from 'aws-amplify-vue'
-// eslint-disable-next-line import/no-mutable-exports
-let $Amplify: AmplifyPlugin
+import { Amplify } from '~/@types/amplify-shim'
 
-export function initializeAmplify(amplifyInstance: AmplifyPlugin) {
+// eslint-disable-next-line import/no-mutable-exports
+let $Amplify: Amplify
+
+export function initializeAmplify(amplifyInstance: Amplify) {
   $Amplify = amplifyInstance
 }
 

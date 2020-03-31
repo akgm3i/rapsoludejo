@@ -1,10 +1,18 @@
 <template>
   <div class="header">
-    <nuxt-link class="header-logo" to="/">
+    <n-link class="header-logo" to="/">
       <img class="h-8" src="@/assets/img/logo.svg" />
-    </nuxt-link>
-    <div class="user-icon">
-      <img class="h-8" src="@/assets/img/icon.png" />
+    </n-link>
+    <div v-if="user.isSignedIn" class="user-icon flex">
+      {{ user.username }}
+      <n-link to="profile">
+        <img class="h-8" src="@/assets/img/icon.png" />
+      </n-link>
+    </div>
+    <div v-else>
+      <n-link to="signIn">
+        ログイン
+      </n-link>
     </div>
   </div>
 </template>
@@ -12,8 +20,18 @@
 <script lang="ts">
 import { Component, Vue } from 'nuxt-property-decorator'
 
-@Component({})
-export default class Header extends Vue {}
+import { vxm } from '~/store'
+
+@Component({
+  components: {},
+})
+export default class Header extends Vue {
+  user = vxm.user
+
+  mounted() {
+    this.user.retrieveSession()
+  }
+}
 </script>
 
 <style lang="scss" scoped>

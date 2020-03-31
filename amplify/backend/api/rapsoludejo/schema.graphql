@@ -1,42 +1,63 @@
-type User @model @key(name: "byRoom", fields: ["roomId", "nickname"]) {
+type User
+  @model(subscriptions: null)
+  @auth(
+    rules: [
+      { allow: owner, ownerField: "id", operations: [update, delete] }
+      { allow: public, provider: iam, operations: [create] }
+    ]
+  )
+  @key(name: "byRoom", fields: ["roomId", "username"]) {
   id: ID!
   email: AWSEmail!
-  nickname: String!
+    @auth(rules: [{ allow: owner, ownerField: "id", operations: [read] }])
+  username: String!
   icon: String
   roomId: ID
-  createdAt: AWSDateTime!
+  createdAt: AWSDateTime
   updatedAt: AWSDateTime
+
   fromRelations: [UserRelation]
     @connection(keyName: "byFromUser", fields: ["id"])
-  toRelations: [UserRelation] @connection(keyName: "byToUser", fields: ["id"])
+    @auth(rules: [{ allow: owner, ownerField: "id" }])
+  toRelations: [UserRelation]
+    @connection(keyName: "byToUser", fields: ["id"])
+    @auth(rules: [{ allow: owner, ownerField: "id" }])
 }
 
 type UserRelation
   @model
+  @auth(rules: [{ allow: owner, operations: [create] }])
   @key(name: "byFromUser", fields: ["fromUserId", "toUserId"])
   @key(name: "byToUser", fields: ["toUserId", "fromUserId"]) {
   id: ID!
   fromUserId: ID!
   toUserId: ID!
   status: UserRelationStatus!
-  createdAt: AWSDateTime!
+  createdAt: AWSDateTime
   updatedAt: AWSDateTime
+
   fromUser: User @connection(fields: ["fromUserId"])
   toUser: User @connection(fields: ["toUserId"])
 }
 
 enum UserRelationStatus {
   pending
-  denied
   friend
   brocked
 }
 
-type Room @model {
+type Room
+  @model(subscriptions: { level: public })
+  @auth(
+    rules: [
+      { allow: owner, ownerField: "ownerId", operations: [create, update] }
+    ]
+  ) {
   id: ID!
   name: String!
   password: String
   ownerId: ID!
+
   owner: User @connection(fields: ["ownerId"])
   users: [User] @connection(keyName: "byRoom", fields: ["id"])
 }

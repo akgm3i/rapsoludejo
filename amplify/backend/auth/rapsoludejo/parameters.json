@@ -1,14 +1,14 @@
 {
-    "identityPoolName": "rapsoludejoa6aaade1_identitypool_a6aaade1",
-    "allowUnauthenticatedIdentities": false,
-    "resourceNameTruncated": "rapsola6aaade1",
-    "userPoolName": "rapsoludejoa6aaade1_userpool_a6aaade1",
+    "identityPoolName": "rapsoludejo_identitypool",
+    "allowUnauthenticatedIdentities": true,
+    "resourceNameTruncated": "rapsol8ab2b054",
+    "userPoolName": "rapsoludejo_userpool",
     "autoVerifiedAttributes": [
         "email"
     ],
-    "mfaConfiguration": "OFF",
+    "mfaConfiguration": "OPTIONAL",
     "mfaTypes": [
-        "SMS Text Message"
+        "TOTP"
     ],
     "smsAuthenticationMessage": "Your authentication code is {####}",
     "smsVerificationMessage": "Your verification code is {####}",
@@ -28,10 +28,20 @@
     "userpoolClientReadAttributes": [
         "email"
     ],
-    "userpoolClientLambdaRole": "rapsola6aaade1_userpoolclient_lambda_role",
+    "userpoolClientLambdaRole": "rapsol8ab2b054_userpoolclient_lambda_role",
     "userpoolClientSetAttributes": false,
-    "resourceName": "rapsoludejoa6aaade1",
+    "useDefault": "manual",
     "authSelections": "identityPoolAndUserPool",
+    "resourceName": "rapsoludejo",
+    "thirdPartyAuth": false,
+    "usernameAttributes": [
+        "email"
+    ],
+    "userPoolGroups": false,
+    "adminQueries": false,
+    "triggers": "{}",
+    "hostedUI": false,
+    "userPoolGroupList": [],
     "authRoleArn": {
         "Fn::GetAtt": [
             "AuthRole",
@@ -44,7 +54,9 @@
             "Arn"
         ]
     },
-    "useDefault": "default",
-    "userPoolGroupList": [],
+    "parentStack": {
+        "Ref": "AWS::StackId"
+    },
+    "permissions": [],
     "dependsOn": []
 }

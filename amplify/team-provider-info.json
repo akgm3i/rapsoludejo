@@ -1,19 +1,19 @@
 {
     "dev": {
         "awscloudformation": {
-            "AuthRoleName": "amplify-rapsoludejo-dev-33353-authRole",
-            "UnauthRoleArn": "arn:aws:iam::747087613304:role/amplify-rapsoludejo-dev-33353-unauthRole",
-            "AuthRoleArn": "arn:aws:iam::747087613304:role/amplify-rapsoludejo-dev-33353-authRole",
+            "AuthRoleName": "amplify-rapsoludejo-dev-231051-authRole",
+            "UnauthRoleArn": "arn:aws:iam::747087613304:role/amplify-rapsoludejo-dev-231051-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::747087613304:role/amplify-rapsoludejo-dev-231051-authRole",
             "Region": "ap-northeast-1",
-            "DeploymentBucketName": "amplify-rapsoludejo-dev-33353-deployment",
-            "UnauthRoleName": "amplify-rapsoludejo-dev-33353-unauthRole",
-            "StackName": "amplify-rapsoludejo-dev-33353",
-            "StackId": "arn:aws:cloudformation:ap-northeast-1:747087613304:stack/amplify-rapsoludejo-dev-33353/33959170-60a2-11ea-897a-0a949e552770",
-            "AmplifyAppId": "d3fkr6a3r48q0b"
+            "DeploymentBucketName": "amplify-rapsoludejo-dev-231051-deployment",
+            "UnauthRoleName": "amplify-rapsoludejo-dev-231051-unauthRole",
+            "StackName": "amplify-rapsoludejo-dev-231051",
+            "StackId": "arn:aws:cloudformation:ap-northeast-1:747087613304:stack/amplify-rapsoludejo-dev-231051/9a0ae310-6f6b-11ea-b9ba-0e8a9cd56576",
+            "AmplifyAppId": "d3c07o5ne1e6nn"
         },
         "categories": {
             "auth": {
-                "rapsoludejoa6aaade1": {}
+                "rapsoludejo": {}
             }
         }
     }
